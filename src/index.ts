@@ -1,8 +1,8 @@
-import dotenv from 'dotenv';
-import express from 'express';
-import http from 'http';
-import routes from './routes';
-import { connectionDb } from './db/models';
+import dotenv from "dotenv";
+import express from "express";
+import http from "http";
+import routes from "./routes";
+import { connectionDb } from "./db";
 
 dotenv.config();
 
@@ -20,5 +20,5 @@ const server: http.Server = http.createServer(app);
 connectionDb();
 
 server.listen(PORT, async () => {
-    console.log(`listening on port for ${PORT}`);
+  console.log(`listening on port for ${PORT}`);
 });
