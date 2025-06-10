@@ -1,0 +1,21 @@
+# dependencies
+node_modules/
+
+# dotenv file
+.env
+
+# logs
+logs
+*.log
+npm-debug.log*
+
+# OS системийн файл
+.DS_Store
+
+# IDE (VSCode гэх мэт) фолдер
+.vscode/
+.idea/
+
+# production build
+dist/
+build/
