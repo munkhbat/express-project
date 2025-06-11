@@ -14,4 +14,24 @@ export default class ProductController {
       throw new Error("failed");
     }
   }
+
+  static async deleteProducts(docs: any[]): Promise<string> {
+    try {
+      const deletedCount = await ProductModel.destroy({
+        where: {
+          doc: docs,
+        },
+      });
+
+      if (deletedCount === 0) {
+        return "No products found to delete";
+      }
+
+      return `${deletedCount} products deleted successfully`;
+    } catch (error: any) {
+      throw new Error(
+        error.message || "Something went wrong while deleting products"
+      );
+    }
+  }
 }
