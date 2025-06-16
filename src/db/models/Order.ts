@@ -1,10 +1,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 
-class User extends Model {
-  public id!: string;
-  public email!: string;
-  public password!: string;
-
+class Order extends Model {
   public static initialize(sequelize: Sequelize) {
     this.init(
       {
@@ -13,26 +9,24 @@ class User extends Model {
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
         },
-        name: {
+
+        user_id: {
+          type: DataTypes.UUID,
+        },
+        status: {
           type: DataTypes.STRING,
           allowNull: false,
         },
-        email: {
+        payment_method: {
           type: DataTypes.STRING,
-          allowNull: false,
         },
-        password: {
-          type: DataTypes.STRING,
-          allowNull: false,
-        },
-        role: {
-          type: DataTypes.STRING,
-          allowNull: false,
+        total_price: {
+          type: DataTypes.FLOAT,
         },
       },
-      { sequelize, modelName: "user", timestamps: true }
+      { sequelize, modelName: "order", timestamps: true }
     );
   }
 }
 
-export default User;
+export default Order;

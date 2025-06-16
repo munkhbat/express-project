@@ -21,8 +21,11 @@ class Product extends Model {
         price: {
           type: DataTypes.STRING,
         },
-        barcode: {
+        stock: {
           type: DataTypes.STRING,
+        },
+        category_id: {
+          type: DataTypes.UUID,
         },
         created_user_id: {
           type: DataTypes.UUID,

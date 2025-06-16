@@ -3,6 +3,14 @@ import dotenv from "dotenv";
 import { Options, Sequelize } from "sequelize";
 import User from "./models/User";
 import Product from "./models/Product";
+import ProductReview from "./models/ProductReview";
+import Order from "./models/Order";
+import OrderItem from "./models/OrderItem";
+import Address from "./models/Address";
+import Cart from "./models/Cart";
+import CartItem from "./models/CartItem";
+import Category from "./models/Categories";
+import Payment from "./models/Payments";
 
 dotenv.config();
 
@@ -18,7 +26,18 @@ const sequelize = new Sequelize(<Options>{
   logging: false,
 });
 
-let models = [User, Product];
+let models = [
+  User,
+  Product,
+  ProductReview,
+  Order,
+  OrderItem,
+  Address,
+  Cart,
+  CartItem,
+  Category,
+  Payment,
+];
 
 models.forEach((model) => model.initialize(sequelize));
 
@@ -39,4 +58,12 @@ export {
   sequelize as Database,
   User as UserModel,
   Product as ProductModel,
+  ProductReview as ProductReviewModel,
+  Cart as CartModel,
+  CartItem as CartItemModel,
+  Category as CategoryModel,
+  Order as OrderModel,
+  OrderItem as OrderItemModel,
+  Address as AddressModel,
+  Payment as PaymentModel,
 };

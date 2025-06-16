@@ -18,6 +18,7 @@ export interface ProductAttributes {
 }
 
 export interface IDeleteProducts {
+  id: any;
   ids: string[];
 }
 

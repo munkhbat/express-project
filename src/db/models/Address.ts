@@ -1,10 +1,6 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 
-class User extends Model {
-  public id!: string;
-  public email!: string;
-  public password!: string;
-
+class Address extends Model {
   public static initialize(sequelize: Sequelize) {
     this.init(
       {
@@ -13,26 +9,28 @@ class User extends Model {
           type: DataTypes.UUID,
           defaultValue: DataTypes.UUIDV4,
         },
-        name: {
+        address_line: {
           type: DataTypes.STRING,
-          allowNull: false,
         },
-        email: {
+        city: {
           type: DataTypes.STRING,
-          allowNull: false,
         },
-        password: {
+        state: {
           type: DataTypes.STRING,
-          allowNull: false,
         },
-        role: {
+        postal_code: {
           type: DataTypes.STRING,
-          allowNull: false,
+        },
+        country: {
+          type: DataTypes.STRING,
+        },
+        phone_number: {
+          type: DataTypes.STRING,
         },
       },
-      { sequelize, modelName: "user", timestamps: true }
+      { sequelize, modelName: "address", timestamps: true }
     );
   }
 }
 
-export default User;
+export default Address;
