@@ -18,6 +18,6 @@ export const verifyToken = (token: string): JwtPayload | string => {
   try {
     return jwt.verify(token, JWT_SECRET);
   } catch {
-    throw new Error("token хучингүй байна");
+    throw new Error("token хүчингүй байна");
   }
 };
