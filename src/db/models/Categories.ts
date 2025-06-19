@@ -1,6 +1,7 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 
 class Category extends Model {
+  id: any;
   public static initialize(sequelize: Sequelize) {
     this.init(
       {

@@ -2,6 +2,8 @@ export interface ICreateProduct {
   name: string;
   barcode: string;
   price: string;
+  stock: string;
+  category_id: string;
   productType: string;
   created_user_id: string;
   updated_user_id: string;
