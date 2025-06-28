@@ -8,9 +8,10 @@ class Category extends Model {
         id: {
           primaryKey: true,
           type: DataTypes.UUID,
+          defaultValue: DataTypes.UUIDV4,
         },
         name: {
-          type: DataTypes.UUID,
+          type: DataTypes.STRING,
         },
       },
       { timestamps: true, modelName: "category", sequelize }

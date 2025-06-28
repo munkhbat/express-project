@@ -1,7 +1,8 @@
 import { CategoryModel } from "../db";
+import { ICreateCategory, IDeleteCategory } from "../utils/interfaces/category";
 
 export default class CategoryController {
-  static async createCategory(doc: any): Promise<string> {
+  static async createCategory(doc: ICreateCategory): Promise<string> {
     try {
       const category = await CategoryModel.create({ ...doc });
       return category.id;
@@ -14,10 +15,10 @@ export default class CategoryController {
     }
   }
 
-  static async deleteCategories(docs: any[]): Promise<string> {
+  static async deleteCategories(docs: IDeleteCategory[]): Promise<string> {
     try {
       const deletedCount = await CategoryModel.destroy({
-        where: { id: docs.map((d) => d.id) },
+        where: { id: docs.map((d) => d.ids) },
       });
 
       if (deletedCount === 0) {

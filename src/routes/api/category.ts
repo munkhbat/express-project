@@ -30,3 +30,14 @@ router.delete("/category/update", async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+router.get("/category/get", async (_req, res) => {
+  try {
+    const message = await CategoryController.getCategories();
+    res.json({ message });
+  } catch (error: any) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+export default router;
