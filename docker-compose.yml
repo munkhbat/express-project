@@ -1,0 +1,29 @@
+version: "3"
+services:
+  app:
+    build: .
+    ports:
+      - "8020:8020"
+    depends_on:
+      - db
+    env_file:
+      - .env
+    environment:
+      DB_HOST: db # зөв, PostgreSQL контейнерын нэрээр зааж байна
+    command: sh -c "npm run build && npm run start"
+    restart: unless-stopped # сэргээх тохиргоог нэмэхийг зөвлөж байна
+
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: test
+      POSTGRES_PASSWORD: test
+      POSTGRES_DB: mytest
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data # өгөгдлийг хадгалах зориулалттай volume нэмэх хэрэгтэй
+
+volumes:
+  pgdata:

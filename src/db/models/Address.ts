@@ -1,6 +1,7 @@
 import { DataTypes, Model, Sequelize } from "sequelize";
 
 class Address extends Model {
+  public id!: string;
   public static initialize(sequelize: Sequelize) {
     this.init(
       {
