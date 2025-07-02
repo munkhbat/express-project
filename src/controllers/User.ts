@@ -11,7 +11,7 @@ export default class UserController {
 
     const existingUser = await UserModel.findOne({ where: { email } });
     if (existingUser) {
-      throw new Error("this email was already existinging");
+      throw new Error("this email was already existinsging");
     }
 
     const hashedPassword = await hashPassword(password);
