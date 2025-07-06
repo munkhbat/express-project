@@ -1,3 +1,4 @@
+import { error } from "console";
 import { AddressModel } from "../db";
 import { IAddress, IAddressValid } from "../utils/interfaces/address";
 import { isEmpty } from "lodash";
@@ -29,5 +30,14 @@ export default class Address {
       country,
       phone_number,
     };
+  }
+
+  static async createAddress(doc: IAddress): Promise<object> {
+    try {
+      const address = await AddressModel.create({ ...doc });
+      return address;
+    } catch (error: any) {
+      throw new Error("error.failed");
+    }
   }
 }

@@ -1,3 +1,4 @@
+import { i18n } from "./../../node_modules/i18next/index.d";
 import { error } from "console";
 import { sign } from "crypto";
 import {
@@ -51,7 +52,7 @@ export default class ProductController {
         return "Product not found or nothing to update.";
       }
 
-      return "Product updated successfully.";
+      return i18n.__("response.ok");
     } catch (error: any) {
       console.error("Error updating product:", error);
 
