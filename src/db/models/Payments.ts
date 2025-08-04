@@ -19,7 +19,7 @@ class Payment extends Model {
           type: DataTypes.STRING,
         },
         amount: {
-          type: DataTypes.STRING,
+          type: DataTypes.FLOAT,
         },
         transaction_id: {
           type: DataTypes.UUID,

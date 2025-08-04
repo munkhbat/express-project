@@ -32,7 +32,6 @@ export default class ProductController {
       if (deletedCount === 0) {
         return "No products found to delete.";
       }
-
       return `${deletedCount} products deleted successfully.`;
     } catch (error: any) {
       console.error("Error deleting products:", error);

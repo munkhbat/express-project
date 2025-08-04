@@ -2,6 +2,7 @@ import { DataType } from "./../../../node_modules/sequelize/types/data-types.d";
 import { DataTypes, Model, Sequelize } from "sequelize";
 
 class Cart extends Model {
+  id: any;
   public static initialize(sequelize: Sequelize) {
     this.init(
       {

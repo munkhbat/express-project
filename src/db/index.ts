@@ -40,14 +40,19 @@ let models = [
 ];
 
 models.forEach((model) => model.initialize(sequelize));
-
+Cart.hasMany(CartItem, { foreignKey: "cart_id", as: "items" });
+CartItem.belongsTo(Cart, { foreignKey: "cart_id", as: "cart" });
+Order.hasMany(OrderItem, { foreignKey: "order_id", as: "items" });
+OrderItem.belongsTo(Order, { foreignKey: "order_id", as: "order" });
+Order.hasOne(Payment, { foreignKey: "order_id", as: "payment" });
+Payment.belongsTo(Order, { foreignKey: "order_id", as: "order" });
 const connectionDb = async (): Promise<void> => {
   try {
     await sequelize.authenticate();
-    console.log("✅ DB connected successfully"); // ✅ Амжилттай холбогдсон лог
+    console.log("✅ DB connected successfully");
 
     await sequelize.sync({ alter: true, force: false });
-    console.log("✅ DB sync complete"); // ✅ Sync хийгдсэнийг логлох
+    console.log("✅ DB sync complete");
   } catch (err: any) {
     console.log("❌ DB connection error:", err.message);
   }
